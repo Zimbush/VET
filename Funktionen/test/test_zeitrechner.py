@@ -67,23 +67,24 @@ class TestUhrzeitDifferenz:
         assert uhrzeit_differenz((12, 30), (12, 30)) == (0, 0)
     
     def test_differenz_nur_minuten(self):
-        assert uhrzeit_differenz((12, 45), (12, 30)) == (0, 15)
+        assert uhrzeit_differenz((12, 30), (12, 45)) == (0, 15)
     
     def test_differenz_nur_stunden(self):
-        assert uhrzeit_differenz((14, 0), (12, 0)) == (2, 0)
+        assert uhrzeit_differenz((12, 0), (14, 0)) == (2, 0)
     
     def test_differenz_stunden_und_minuten(self):
-        assert uhrzeit_differenz((14, 30), (12, 15)) == (2, 15)
-        assert uhrzeit_differenz((16, 45), (14, 20)) == (2, 25)
+        assert uhrzeit_differenz((12, 15), (14, 30)) == (2, 15)
+        assert uhrzeit_differenz((14, 20), (16, 45)) == (2, 25)
     
     def test_uebertrag_bei_minuten(self):
-        # 14:15 - 12:30 = 1:45
-        assert uhrzeit_differenz((14, 15), (12, 30)) == (1, 45)
+        # 12:30 bis 14:15 = 1:45
+        assert uhrzeit_differenz((12, 30), (14, 15)) == (1, 45)
     
     def test_reihenfolge_egal(self):
-        # Differenz sollte absolut sein
+        # Wenn zeit1 nach zeit2 liegt, wird ein Tag vorher angenommen
+        assert uhrzeit_differenz((14, 45), (12, 30)) == (21, 45)
         assert uhrzeit_differenz((12, 30), (14, 45)) == (2, 15)
-        assert uhrzeit_differenz((14, 45), (12, 30)) == (2, 15)
     
     def test_mitternacht_grenze(self):
-        assert uhrzeit_differenz((23, 45), (0, 15)) == (23, 30)
+        # 23:45 bis 0:15 = 0:30 (über Mitternacht)
+        assert uhrzeit_differenz((23, 45), (0, 15)) == (0, 30)
