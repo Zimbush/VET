@@ -7,12 +7,12 @@ def test_zugnummer_initialisierung():
     assert zugnummer.zugnummer == 1
     assert zugnummer.farbe == Farbe.W
 
-def test_zugnummer_str():
+def test_zugnummer_notation():
     zugnummer_weiss = Zugnummer(1, Farbe.W)
-    assert str(zugnummer_weiss) == "1."
+    assert zugnummer_weiss.notation() == "1."
 
     zugnummer_schwarz = Zugnummer(1, Farbe.S)
-    assert str(zugnummer_schwarz) == "1..."
+    assert zugnummer_schwarz.notation() == "1..."
 
 def test_zugnummer_validation():
     with pytest.raises(ValueError):

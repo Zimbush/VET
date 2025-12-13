@@ -12,11 +12,11 @@ class Zugnummer:
         if not isinstance(self.farbe, Farbe):
             raise ValueError(f"Unbekannte Farbe: {self.farbe}.")
 
-    def __str__(self) -> str:
-        return f"{self.zugnummer}." if self.farbe == Farbe.W else f"{self.zugnummer}..."
-
     def kurz(self) -> str:
         return f"{self.zugnummer}{self.farbe.kurz()}"
+    
+    def notation(self) -> str:
+        return f"{self.zugnummer}." if self.farbe == Farbe.W else f"{self.zugnummer}..."    
 
     def nachfolger(self) -> Zugnummer:
         return Zugnummer(self.zugnummer + (1 if self.farbe == Farbe.S else 0), self.farbe.gegenteil())
