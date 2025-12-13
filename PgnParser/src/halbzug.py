@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from farbe import Farbe
 
 @dataclass(frozen=True)
-class Halbzug:
+class Zugnummer:
     zugnummer: int
     farbe: Farbe
 
@@ -18,5 +18,5 @@ class Halbzug:
     def kurz(self) -> str:
         return f"{self.zugnummer}{self.farbe.kurz()}"
 
-    def nachfolger(self) -> Halbzug:
-        return Halbzug(self.zugnummer + (1 if self.farbe == Farbe.S else 0), self.farbe.gegenteil())
+    def nachfolger(self) -> Zugnummer:
+        return Zugnummer(self.zugnummer + (1 if self.farbe == Farbe.S else 0), self.farbe.gegenteil())
