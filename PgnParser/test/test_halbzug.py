@@ -52,3 +52,15 @@ def test_halbzug_str_mit_matt():
     spielstein = Spielstein(SpielsteinTyp.DAME, Farbe.W)
     halbzug = Halbzug(zugnummer, spielstein, Koordinate(4, 8), von=Koordinate(4, 4), ist_matt=True)
     assert str(halbzug) == "10. Dd8#"
+
+def test_halbzug_mit_nag():
+    zugnummer = Zugnummer(1, Farbe.W)
+    spielstein = Spielstein(SpielsteinTyp.KOENIG, Farbe.W)
+    halbzug = Halbzug(zugnummer, spielstein, Koordinate(5, 2), von=Koordinate(5, 1), nag=1)
+    assert halbzug.nag == 1
+
+def test_halbzug_nag_optional():
+    zugnummer = Zugnummer(1, Farbe.W)
+    spielstein = Spielstein(SpielsteinTyp.KOENIG, Farbe.W)
+    halbzug = Halbzug(zugnummer, spielstein, Koordinate(5, 2), von=Koordinate(5, 1))
+    assert halbzug.nag is None

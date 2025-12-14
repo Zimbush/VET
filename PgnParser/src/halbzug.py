@@ -11,6 +11,7 @@ class Halbzug:
     von: Koordinate | None = None
     ist_schach: bool = False
     ist_matt: bool = False
+    nag: int | None = None
 
     def __post_init__(self):
         if self.spielstein.farbe != self.zugnummer.farbe:
