@@ -7,6 +7,7 @@ from farbe import Farbe
 from koordinate import Koordinate
 
 class PgnTokenizer:
+    """Zerlegt PGN-Strings in eine Liste von Schachzügen und Metadaten."""
     spalten_buchstaben = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5, 'f': 6, 'g': 7, 'h': 8}
     # PGN-Notation: K=König, Q=Dame, R=Turm, B=Läufer, N=Springer, (Bauer hat kein Symbol)
     pgn_spielstein_notation = {
@@ -19,6 +20,7 @@ class PgnTokenizer:
     }
 
     def tokenize(self, pgn_string: str) -> list[Token]:
+        """Konvertiert einen PGN-String in eine Liste von Tokens."""
         tokens = []
         ebene = 0
         zugnummer = None
@@ -60,7 +62,7 @@ class PgnTokenizer:
         return tokens
 
     def _split_pgn(self, pgn_string: str) -> list[str]:
-        """Teilt PGN-String in rohe Tokens auf"""
+        """Teilt einen PGN-String in rohe Tokens auf."""
         # Klammern und Varianten-Symbole werden mit Whitespace getrennt
         pgn_string = pgn_string.replace('(', ' ( ').replace(')', ' ) ')
         # $ und * auch separiert
@@ -72,12 +74,12 @@ class PgnTokenizer:
         return [t for t in pgn_string.split() if t.strip()]
 
     def _ist_zugnummer(self, token: str) -> bool:
-        """Prüft, ob Token eine Zugnummer ist (z.B. '1.', '1...')"""
+        """Prüft, ob ein Token eine Zugnummer ist."""
         return bool(re.match(r'^\d+\.{1,2}$', token))
 
     def _parse_zugnummer(self, token: str) -> Zugnummer:
-        """Parse Zugnummer aus Token wie '1.' oder '1...'"""
-        # '1.' = Weiß (Move 1), '1...' = Schwarz (Move 1)
+        """Parst eine Zugnummer aus einem Token."""
+        # '1.' = Weiß (Zug 1), '1...' = Schwarz (Zug 1)
         match = re.match(r'^(\d+)\.{1,2}$', token)
         if not match:
             raise ValueError(f"Ungültige Zugnummer: {token}")
@@ -88,7 +90,7 @@ class PgnTokenizer:
         return Zugnummer(zugnummer_int, farbe)
 
     def _parse_halbzug(self, token: str, zugnummer: Zugnummer) -> Halbzug:
-        """Parse einen Halbzug aus algebraischer Notation"""
+        """Parst einen Halbzug aus algebraischer Notation."""
         # Rochade?
         if token in ('O-O', 'O-O-O'):
             # Rochade wird mit König als Spielstein modelliert
