@@ -1,0 +1,29 @@
+# Sphinx-Dokumentation - generierte Dateien
+doc/_build/
+doc/generated/
+
+# Python-Bytecode und Cache-Dateien
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtuelle Umgebungen
+.venv/
+venv/
+ENV/
+env/
+
+# Projekt-spezifische Dateien
+*.egg-info/
+dist/
+build/
+
+# IDE und Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store

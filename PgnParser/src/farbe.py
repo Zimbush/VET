@@ -5,14 +5,14 @@ class Farbe(Enum):
     W = "weiß"
     S = "schwarz"
 
-    def __str__(self):
+    def __str__(self) -> str:
         """Gibt die Zeichenkette der Farbe zurück."""
         return self.value
 
-    def kurz(self):
+    def kurz(self) -> str:
         """Gibt die Kurzform der Farbe zurück."""
         return self.name.lower()
 
-    def gegenteil(self):
+    def gegenteil(self) -> "Farbe":
         """Gibt die entgegengesetzte Farbe zurück."""
         return Farbe.S if self == Farbe.W else Farbe.W

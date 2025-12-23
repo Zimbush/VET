@@ -2,7 +2,10 @@ from koordinate import Koordinate
 from feld import Feld
 
 class Schachbrett:
+    """Repräsentiert ein Schachbrett mit 8x8 Feldern."""
+    
     def __init__(self):
+        """Initialisiert das Schachbrett mit leeren Feldern."""
         self.__felder: dict[Koordinate, Feld] = {}
         for spalte in range(1, 9):
             for reihe in range(1, 9):
@@ -10,11 +13,13 @@ class Schachbrett:
                 self.__felder[koord] = Feld(koord)
 
     def feld(self, koordinate: Koordinate) -> Feld:
+        """Gibt das Feld für eine Koordinate zurück."""
         if koordinate not in self.__felder:
             raise ValueError(f"Ungültige Koordinate: {koordinate}")
         return self.__felder[koordinate]
 
     def __str__(self) -> str:
+        """Gibt eine Zeichenkette des Schachbretts zurück."""
         result = []
         for reihe in range(8, 0, -1):
             reihe_str = f"{reihe} "
