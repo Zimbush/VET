@@ -4,10 +4,7 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
-dependencies = [
-    "sphinx>=9.0.4",
-    "sphinx-rtd-theme>=0.5.1",
-]
+dependencies = []
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
@@ -15,4 +12,6 @@ pythonpath = ["src"]
 [dependency-groups]
 dev = [
     "pytest>=9.0.2",
+    "sphinx>=9.0.4",
+    "sphinx-rtd-theme>=0.5.1",
 ]
