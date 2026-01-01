@@ -16,6 +16,8 @@ class Bruch_LY:
 
 
 class Bruch_PY:
+    __zaehler: int
+    __nenner: int
     
     def __init__(self, zaehler: int, nenner: int) -> None:
         if nenner == 0:

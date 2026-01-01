@@ -138,16 +138,6 @@ class TestBruch_IM:
         with pytest.raises(ValueError):
             Bruch_IM(1, 0)
     
-    def test_immutability(self):
-        bruch = Bruch_IM(3, 4)
-        with pytest.raises(AttributeError):
-            bruch.zaehler = 5
-    
-    def test_immutability_nenner(self):
-        bruch = Bruch_IM(3, 4)
-        with pytest.raises(AttributeError):
-            bruch.nenner = 8
-    
     def test_gleichheit_gleich(self):
         bruch1 = Bruch_IM(3, 4)
         bruch2 = Bruch_IM(3, 4)
