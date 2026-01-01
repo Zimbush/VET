@@ -1,4 +1,4 @@
-= Zeitrechner
+# Zeitrechner
 
 Es sollen Funktionen zur Berechnung der Differenz zweier Uhrzeiten erstellt werden.
 

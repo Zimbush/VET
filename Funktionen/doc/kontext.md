@@ -1,8 +1,8 @@
-= Projektkontext
+# Projektkontext
 
 Es handelt sich um ein Entwicklungsprojekt mit Python.
 
-== Projektinfrastruktur
+## Projektinfrastruktur
 
 - Das Projekt soll mit uv verwaltet werden.
 - uv soll eine virtuelle Umgebung erstellen.
