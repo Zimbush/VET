@@ -17,7 +17,7 @@ class SimpleClass:
     @overload
     def append(self, suffix: str) -> None: ...
 
-    def append(self, suffix) -> None:
+    def append(self, suffix: int | str) -> None:
         if isinstance(suffix, int):
             self.wert += str(suffix)
         else:    

@@ -1,5 +1,6 @@
 import time
 import random
+from typing import Callable
 from sortieren import insertion_sort, selection_sort, bubble_sort, merge_sort
 
 algos = [
@@ -9,7 +10,7 @@ algos = [
     ("Merge Sort", merge_sort),
 ]
 
-def messung(sort_func, lst):
+def messung(sort_func: Callable, lst: list) -> float:
     start = time.perf_counter()
     sort_func(lst)
     end = time.perf_counter()
