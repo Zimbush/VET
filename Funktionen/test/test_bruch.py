@@ -1,5 +1,5 @@
 import pytest
-from src.bruch import Bruch_LY, Bruch_PY, Bruch_DC, Bruch_IM
+from bruch import Bruch_LY, Bruch_PY, Bruch_DC, Bruch_IM
 
 
 class TestBruch_LY:

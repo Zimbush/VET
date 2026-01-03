@@ -1,5 +1,5 @@
 import pytest
-from src.baum import Blatt, Knoten, BaumKnoten, BaumAuswertung, BaumAuswertungSingleDispatch
+from baum import Blatt, Knoten, BaumKnoten, BaumAuswertung, BaumAuswertungSingleDispatch
 
 
 class TestBlatt:
