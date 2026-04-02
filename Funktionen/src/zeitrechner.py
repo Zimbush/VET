@@ -24,3 +24,12 @@ def uhrzeit_differenz(zeit1: tuple[int, int], zeit2: tuple[int, int]) -> tuple[i
     stunden = minuten_zu_stunden(differenz_minuten)
     minuten = minuten_rest(differenz_minuten)
     return (stunden, minuten)
+
+def main():
+    zeit1 = (14, 30)  # 14:30 Uhr
+    zeit2 = (16, 45)  # 16:45 Uhr
+    differenz = uhrzeit_differenz(zeit1, zeit2)
+    print(f"Die Differenz zwischen {zeit1[0]:02d}:{zeit1[1]:02d} und {zeit2[0]:02d}:{zeit2[1]:02d} beträgt {differenz[0]} Stunden und {differenz[1]} Minuten.")
+
+if __name__ == "__main__":
+    main()

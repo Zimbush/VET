@@ -4,7 +4,8 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+]
 
 [tool.pyrefly]
 project-excludes = ["test"]
@@ -23,6 +24,7 @@ dev = [
     "sphinx>=9.0.4",
     "sphinx-rtd-theme>=0.5.1",
     "pyrefly>=0.2.0",
+    "pyinstaller>=6.19.0",
 ]
 
 
